@@ -1,6 +1,7 @@
 object lobo {
 	var peso=10	
 	
+	method peso(){ return peso}
 	method estaSaludable(){
 		return (peso>20 and peso<150)
 	}
@@ -34,6 +35,7 @@ object lobo {
 
 object caperucita{
 	var manzanas = 6
+	method manzanas(){ return manzanas}
 	method peso(){return 60+0.2*manzanas} 
 	
 	method perderManzana(){
@@ -113,7 +115,7 @@ object casaPaja{
 		return ocupantes
 	}
 	
-	method setOcupantes(valor){
+	method ocupantes(valor){
 		ocupantes=valor
 	}	
 }
@@ -130,7 +132,7 @@ object casaMadera{
 		return ocupantes
 	}
 	
-	method setOcupantes(valor){
+	method ocupantes(valor){
 		ocupantes=valor
 	}	
 }
@@ -147,7 +149,7 @@ object casaLadrillos{
 		return ocupantes
 	}
 	
-	method setOcupantes(valor){
+	method ocupantes(valor){
 		ocupantes=valor
 	}	
 }
@@ -162,28 +164,28 @@ object cerdo{
 object historiaCerditos{
 	method historia(){
 		lobo.soplar(casaPaja)
-		casaPaja.setOcupantes(0)
-		casaMadera.setOcupantes(2)
+		casaPaja.ocupantes(0)
+		casaMadera.ocupantes(2)
 		lobo.soplar(casaMadera)
 		}
 	method final1(){//se como a los dos cerditos cuando intenta escapar
 		self.historia()
-		casaMadera.setOcupantes(0)
+		casaMadera.ocupantes(0)
 		lobo.come(cerdo)
 		lobo.come(cerdo)
 		return lobo.estaSaludable()
 	}
 	method final2(){//los cerdos escapan a la casa de ladrillo y el lobo iintenta soplar la casa
 		self.historia()
-		casaMadera.setOcupantes(0)
-		casaLadrillos.setOcupantes(3)
+		casaMadera.ocupantes(0)
+		casaLadrillos.ocupantes(3)
 		lobo.soplar(casaLadrillos)
 	}
 	method reset(){
 		lobo.sufreCrisis()
-		casaPaja.setOcupantes(1)
-		casaMadera.setOcupantes(1)
-		casaLadrillos.setOcupantes(1)
+		casaPaja.ocupantes(1)
+		casaMadera.ocupantes(1)
+		casaLadrillos.ocupantes(1)
 	}
 }
 
